@@ -11,6 +11,32 @@ call vundle#begin()
 execute pathogen#infect()
 
 
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap <Space> <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap <Space> <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+map <Leader>k <Plug>(easymotion-k)
+
+
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 
@@ -27,6 +53,10 @@ imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 
 
 
+"noremap i k
+"noremap <C-I> i
+"noremap j h
+"noremap k j
 
 
 let g:pymode_python = 'python3'
@@ -45,6 +75,8 @@ let g:pymode_python = 'python3'
 let g:UltiSnipsJumpForwardTrigger="<c-c>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+Plugin 'leafgarland/typescript-vim'
+" Plugin 'dracula/vim'
 
 map <C-R>vr :VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 
@@ -67,26 +99,36 @@ map <C-R>vx :VimuxInterruptRunner<CR>
 "
 "           " Zoom the runner pane (use <bind-key> z to restore runner pane)
 map <C-R>vz :call VimuxZoomRunner()<CR>
+
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+Plugin 'christoomey/vim-tmux-navigator'
 "
 " " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-
+Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
+Bundle 'KurtPreston/vim-autoformat-rails'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'udalov/kotlin-vim'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsExpandTrigger="<tab>"
 
-let g:UltiSnipsUsePythonVersion = 3
+" let g:UltiSnipsUsePythonVersion = 3
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
-let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+" let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
+" let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
-let g:syntastic_python_python_exec = '/Library/Python/2.7/'
+" let g:syntastic_python_python_exec = '/Library/Python/2.7/'
 
-Plugin 'artur-shaik/vim-javacomplete2'
+" Plugin 'artur-shaik/vim-javacomplete2'
 set guifont=Menlo\ for\ Powerline
 " let Vundle manage Vundle, required"
 Plugin 'alvan/vim-php-manual'
@@ -94,8 +136,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-rails'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'chriskempson/tomorrow-theme'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'tpope/vim-commentary' 
@@ -103,12 +147,13 @@ call vundle#end()            " required
 filetype plugin indent on    " required	
 
 set mouse=a        " Enable mouse support in console
-colorscheme monokai 
 
 filetype on
 filetype plugin on
 filetype indent on
 syntax enable
+" syntax on
+" color dracula
 set grepprg=grep\ -nH\ $*
 
 "Go Lint
@@ -124,9 +169,11 @@ endfunction
 command! -bang -nargs=* -complete=tag S call SearchMultiLine(<bang>0, <f-args>)|normal! /<C-R>/<CR>
 
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-
-source ~/.vim/bundle/closetag/plugin/closetag.vim " Html auto close tags
 
 set showcmd      " Shows what you are typing as a command
 set nocompatible " Necessary for lots for cool vim things
@@ -136,4 +183,6 @@ set ai           " Auto indent
 set si           " Smart indet
 set wrap         " Wrap lines
 syntax on
-color Crystallite
+" color Crystallite
+colorscheme Tomorrow-Night
+
