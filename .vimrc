@@ -76,6 +76,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-c>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 Plugin 'leafgarland/typescript-vim'
+Plugin 'rust-lang/rust.vim'
 " Plugin 'dracula/vim'
 
 map <C-R>vr :VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
@@ -184,5 +185,4 @@ set si           " Smart indet
 set wrap         " Wrap lines
 syntax on
 " color Crystallite
-colorscheme Tomorrow-Night
-
+" colorscheme base16-default-dark 
