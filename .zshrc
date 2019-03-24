@@ -99,6 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.rvm/scripts/rvm
-alias c = "clear"
-alias ec = "emacsclient"
+alias c="clear"
+alias ec="emacsclient"
 
