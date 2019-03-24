@@ -101,4 +101,12 @@ source $ZSH/oh-my-zsh.sh
 source ~/.rvm/scripts/rvm
 alias c="clear"
 alias ec="emacsclient"
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+PATH=$PATH:$GOPATH:$GOBIN
+export PATH
 
+source ~/.rvm/scripts/rvm
+export ANDROID_HOME=$HOME/Android/Sdk 
+export PATH=$PATH:$ANDROID_HOME/tools 
+export PATH=$PATH:$ANDROID_HOME/platform-tool
