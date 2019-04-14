@@ -100,7 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.rvm/scripts/rvm
 alias c="clear"
-alias ec="emacsclient"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 PATH=$PATH:$GOPATH:$GOBIN
@@ -110,3 +109,18 @@ source ~/.rvm/scripts/rvm
 export ANDROID_HOME=$HOME/Android/Sdk 
 export PATH=$PATH:$ANDROID_HOME/tools 
 export PATH=$PATH:$ANDROID_HOME/platform-tool
+alias emu="$HOME/Android/Sdk/emulator/emulator @test"
+
+
+export PATH=$PATH:$HOME/flutter/bin
+export PATH=$PATH:$HOME/bin/terraform
+
+alias show="exa -abghHliS"
+
+alias es="emacs --fg-daemon"
+
+alias ec="emacsclient -c -n -a ''"
+alias e="emacsclient -t -a ''"
+alias vim="e"
+alias vi="e"
+
