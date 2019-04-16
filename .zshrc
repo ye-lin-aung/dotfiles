@@ -124,3 +124,5 @@ alias e="emacsclient -t -a ''"
 alias vim="e"
 alias vi="e"
 
+
+source ~/vulkan/1.1.101.0/setup-env.sh 
