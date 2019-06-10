@@ -29,7 +29,13 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment the following line to disable colors in ls.
+# Uncomment the following line to disable (cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+#cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+#source ~/.cache/wal/colors-tty.shcolors in ls.
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
@@ -68,6 +74,13 @@ plugins=(
   zsh-autosuggestions
 )
 
+# (cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+# cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+#source ~/.cache/wal/colors-tty.sh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -126,3 +139,14 @@ alias vi="e"
 
 
 source ~/vulkan/1.1.101.0/setup-env.sh 
+setxkbmap -option ctrl:swapcaps
+
+
+#cat ~/.cache/wal/sequences &
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
+export PATH="${PATH}:${HOME}/.local/bin/"
+xset +fp $HOME/.fonts
+xset fp rehash
