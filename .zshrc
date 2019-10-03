@@ -69,7 +69,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  rails
+#  rails
   ruby
   zsh-autosuggestions
 )
@@ -118,13 +118,13 @@ export GOBIN=$GOPATH/bin
 PATH=$PATH:$GOPATH:$GOBIN
 export PATH
 
-source ~/.rvm/scripts/rvm
+#source ~/.rvm/scripts/rvm
 export ANDROID_HOME=$HOME/Android/Sdk 
 export PATH=$PATH:$ANDROID_HOME/tools 
 export PATH=$PATH:$ANDROID_HOME/platform-tool
 alias emu="$HOME/Android/Sdk/emulator/emulator @test"
 
-
+export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$HOME/flutter/bin
 export PATH=$PATH:$HOME/bin/terraform
 
@@ -138,15 +138,26 @@ alias vim="e"
 alias vi="e"
 
 
-source ~/vulkan/1.1.101.0/setup-env.sh 
+#source ~/vulkan/1.1.101.0/setup-env.sh 
 setxkbmap -option ctrl:swapcaps
 
 
 #cat ~/.cache/wal/sequences &
 # Alternative (blocks terminal for 0-3ms)
-cat ~/.cache/wal/sequences
+#cat ~/.cache/wal/sequences
 # To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
+#source ~/.cache/wal/colors-tty.sh
 export PATH="${PATH}:${HOME}/.local/bin/"
-xset +fp $HOME/.fonts
-xset fp rehash
+#xset +fp $HOME/.fonts
+#xset fp rehash
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+alias ld='lazydocker'
+
+
+# BEGIN Ruboto setup
+source ~/.rubotorc
+# END Ruboto setup
+
+source $HOME/.cargo/env
